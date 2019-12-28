@@ -249,7 +249,7 @@ namespace CppWinForm1 {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Buffer";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -307,13 +307,13 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 	}
 	DrawQueue();
 
-	int ss = Convert::ToInt32(textBox1->Text);
-	if (SizeCurr >= ss)
+
+	if (pQueue->IsFull())
 	{
 		label5->Text = "Queue is FULL";
 	}
 
-	if (SizeCurr < 0)
+	if (pQueue->IsEmpty())
 	{
 		label5->Text = "Queue is EMPTY";
 	}
